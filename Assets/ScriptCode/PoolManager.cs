@@ -20,12 +20,12 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public GameObject Get(int i)
+    public GameObject Get(int idxex)
     {
         GameObject select = null;
         // 선택한 풀의 놀고(비활성화된) 있는 게임 오브젝트 접근
         // 발견하면 select 변수에 할당
-        foreach(GameObject item in pools[i])
+        foreach(GameObject item in pools[idxex])
         {
             if (!item.activeSelf)
             { // 발견하면 select 변수에 할당
@@ -37,8 +37,8 @@ public class PoolManager : MonoBehaviour
         // 모두 쓰고있으면 새롭게 생성하고 select 변수에 할당
         if (!select)
         {
-            select = Instantiate(prefabs[i],transform);
-            pools[i].Add(select);
+            select = Instantiate(prefabs[idxex],transform);
+            pools[idxex].Add(select);
         }
 
         return select;
